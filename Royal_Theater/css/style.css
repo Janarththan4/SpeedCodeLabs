@@ -1,0 +1,331 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+
+:root{
+   --main-color:#F55353;
+   --black:#222;
+   --white:#fff;
+   --light-black:#777;
+   --light-white:#fff9;
+   --dark-bg:rgba(0,0,0,.7);
+   --light-bg:#eee;
+   --border:.1rem solid var(--black);
+   --box-shadow:0 .5rem 1rem rgba(0,0,0,.5);
+   --text-shadow:0 1.5rem 3rem rgba(0,0,0,.3);
+}
+
+*{
+   font-family: 'Poppins', sans-serif;
+   margin:0; 
+   padding:0;
+   box-sizing: border-box;
+   outline: none; 
+   border:none;
+   text-decoration: none;
+   scroll-behavior: smooth;
+}
+.home{
+   background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.75)), url(../images/theaterbg.jpg);
+   background-repeat: no-repeat;
+   background-size: cover;
+   background-position: center;
+   min-height: 80vh;
+   position: relative;
+   text-align: center;
+   animation: introLoad 2s forwards;
+}
+
+.home h3{
+   font-family: 'Righteous', cursive;
+   font-size: 3rem;
+   text-transform: uppercase;
+   color:var(--white);
+   position: relative;
+   top: 3em;
+   line-height: 1.7;
+   letter-spacing: 3px;
+}
+.home h3 span {
+   color: var(--main-color);
+}
+.home p{
+   font-size: 1.5rem;
+   font-family: 'Righteous', cursive;
+   color: var(--light-bg);
+}
+
+.down-arrow {
+   height: 50px;
+   width: 50px;
+   position: absolute;
+   bottom: 2em;
+   animation: upDown 1s alternate-reverse infinite;
+}
+@keyframes upDown{
+   from {
+      transform: translateY(-20px)
+   }
+   to {
+      transform: translateY(0)
+   }
+}
+@keyframes introLoad {
+   from {
+      clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+   }
+   to {
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+   }
+}
+.header{
+   position: sticky;
+   top:0; left:0; right:0;
+   z-index: 1000;
+   background-color: var(--white);
+   display: flex;
+   padding: 1em 0;
+   box-shadow: var(--box-shadow);
+   align-items: center;
+   justify-content: space-around;
+}
+
+.header .logo{
+   height: 40px;
+   width: 40px;
+}
+
+.header .navbar a{
+   font-size: 1.25rem;
+   margin-left: 2em;
+   color: var(--black);
+}
+
+.header .navbar a:hover{
+   color:var(--main-color);
+   border-bottom: 1px solid var(--main-color);
+}
+
+#menu-btn{
+   font-size: 2rem;
+   cursor: pointer;
+   color: var(--black);
+   display: none;
+}
+.btn{
+   display: inline-block;
+   background: var(--black);
+   margin-top: 1em;
+   color: var(--white);
+   font-size: 1rem;
+   padding: 1em 2em;
+   cursor: pointer;
+}
+
+.btn:hover{
+   background: var(--main-color);
+}
+
+.heading-title{
+   text-align: center;
+   margin-bottom: 1em;
+   font-size: 2.5rem;
+   text-transform: uppercase;
+   color:var(--black);
+}
+/* -------------- ABOUT US -------------- */
+.home-about{
+   display: flex;
+   align-items: center;
+   flex-wrap: wrap;
+   padding: 1em 2em;
+}
+
+.home-about .image{
+   flex: 1 1 20rem;
+}
+
+.home-about .image img{
+   width: 100%;
+}
+
+.home-about .content{
+   flex: 1 1 30rem;
+   padding: 2em;
+   background: var(--light-bg);
+}
+
+.home-about .content h3{
+   font-size: 1.5rem;
+   color: var(--black);
+}
+
+.home-about .content p{
+   font-size: 1rem;
+   padding: 1em 0;
+   line-height: 2;
+   color:var(--black);
+}
+
+/* ----------------- MOVIES ------------------- */
+.home-movies{
+   background: var(--light-bg);
+   padding: 0 2em;
+}
+
+.home-movies .box-container{
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(20em, 1fr));
+   gap: 2em;
+}
+
+.home-movies .box-container .box{
+   border: var(--border);
+   box-shadow: var(--box-shadow);
+   background: var(--white);
+}
+
+.home-movies .box-container .box:hover .image img{
+   transform: scale(1.1);
+}
+
+.home-movies .box-container .box .image{
+   height: 20rem;
+   overflow: hidden;
+}
+
+.home-movies .box-container .box .image img{
+   height: 100%;
+   width: 100%;
+   object-fit: cover;
+   transition: .2s linear;
+}
+
+.home-movies .box-container .box .content{
+   padding: 2em;
+   text-align: center;
+}
+
+.home-movies .box-container .box .content h3{
+   font-size: 1.5rem;
+   color:var(--black);
+}
+
+.home-movies .box-container .box .content p{
+   font-size: 1rem;
+   color: var(--light-black);
+   line-height: 2;
+   padding: 1em 0;
+}
+
+/* --------------- BOOK.PHP ----------------- */
+.booking .book-form{
+   padding: 2em;
+   background: var(--light-bg);
+   max-width: 50%;
+   margin: 0 auto 5em;
+}
+
+.booking .book-form .flex{
+   display: flex;
+   flex-wrap: wrap;
+   gap: 2rem;
+}
+
+.booking .book-form .flex .inputBox, select{
+   flex:1 1 40rem;
+}
+
+.booking .book-form .flex .inputBox input, select{
+   width: 100%;
+   padding: .5em 1em;
+   font-size: 1rem;
+   color: var(--black);
+   text-transform: none;
+   margin-top: .5em;
+   border: var(--border);
+}
+
+.booking .book-form .flex .inputBox input:focus, select:focus{
+   background: var(--light-black);
+   color: var(--white);
+}
+
+.booking .book-form .flex .inputBox input:focus::placeholder, select:focus::placeholder{
+   color: var(--light-white);
+}
+
+.booking .book-form .flex .inputBox, select span{
+   font-size: 1rem;
+   color: var(--light-black);
+}
+
+.booking .book-form .btn{
+   margin-top: 2em;
+}
+
+/* --------------------- FOOTER ----------------------- */
+.footer{
+   background: var(--black);
+}
+
+.footer .box-container{
+   display: flex;
+   align-items: center;
+   justify-content: space-around;
+}
+
+.footer .box-container .box h3{
+   color:var(--white);
+   font-size: 1.5rem;
+   padding: 1em 0;
+}
+
+.footer .box-container .box a{
+   color:var(--light-white);
+   font-size: 1rem;
+   padding-bottom: 1em;
+   display: block;
+}
+
+.footer .box-container .box a i{
+   color:var(--main-color);
+   padding-right: .5em;
+   transition: .2s linear;
+}
+
+.footer .box-container .box a:hover i{
+   padding-right: 1em;
+}
+
+.footer .credit{
+   text-align: center;
+   padding: 1em 0;
+   margin-top: 1em;
+   border-top: .1rem solid var(--light-white);
+   font-size: 1rem;
+   color:var(--white);
+}
+
+.footer .credit span{
+   color: var(--main-color);
+}
+.toast {
+   background: #eee;
+   width: 50%;
+   margin: 0 auto;
+   padding: 1em 0;
+   display: flex;
+   align-items: center;
+   justify-content: space-around;
+}
+.success {
+   text-align: center;
+   color: #36AE7C;
+   margin-top: .5em;
+}
+.fa-xmark {
+   color: #F55353;
+}
+.fa-xmark:hover {
+   cursor: pointer;
+}
